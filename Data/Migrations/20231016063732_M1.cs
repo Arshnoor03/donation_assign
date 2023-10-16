@@ -53,7 +53,7 @@ namespace comp4976_assignment1.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ContactList",
+                name: "ContactLists",
                 columns: table => new
                 {
                     AccountNo = table.Column<int>(type: "INTEGER", nullable: false)
@@ -72,11 +72,11 @@ namespace comp4976_assignment1.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContactList", x => x.AccountNo);
+                    table.PrimaryKey("PK_ContactLists", x => x.AccountNo);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaymentMethod",
+                name: "PaymentMethods",
                 columns: table => new
                 {
                     PaymentMethodId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -89,11 +89,11 @@ namespace comp4976_assignment1.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaymentMethod", x => x.PaymentMethodId);
+                    table.PrimaryKey("PK_PaymentMethods", x => x.PaymentMethodId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TransactionType",
+                name: "TransactionTypes",
                 columns: table => new
                 {
                     TransactionTypeId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -107,7 +107,7 @@ namespace comp4976_assignment1.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TransactionType", x => x.TransactionTypeId);
+                    table.PrimaryKey("PK_TransactionTypes", x => x.TransactionTypeId);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,21 +237,21 @@ namespace comp4976_assignment1.Data.Migrations
                 {
                     table.PrimaryKey("PK_Donations", x => x.TransId);
                     table.ForeignKey(
-                        name: "FK_Donations_ContactList_AccountNo",
+                        name: "FK_Donations_ContactLists_AccountNo",
                         column: x => x.AccountNo,
-                        principalTable: "ContactList",
+                        principalTable: "ContactLists",
                         principalColumn: "AccountNo",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Donations_PaymentMethod_PaymentMethodId",
+                        name: "FK_Donations_PaymentMethods_PaymentMethodId",
                         column: x => x.PaymentMethodId,
-                        principalTable: "PaymentMethod",
+                        principalTable: "PaymentMethods",
                         principalColumn: "PaymentMethodId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Donations_TransactionType_TransactionTypeId",
+                        name: "FK_Donations_TransactionTypes_TransactionTypeId",
                         column: x => x.TransactionTypeId,
-                        principalTable: "TransactionType",
+                        principalTable: "TransactionTypes",
                         principalColumn: "TransactionTypeId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -261,9 +261,9 @@ namespace comp4976_assignment1.Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2176da08-9a70-4221-afe0-5f26790503c4", null, "Admin", "ADMIN" },
-                    { "af30b332-4f02-4d34-8ac0-902939591ffa", null, "Member", "MEMBER" },
-                    { "d1eff987-dd82-4687-9201-e1caf815444a", null, "Finance", "FINANCE" }
+                    { "0923bf71-ac5b-4dfc-9573-2d5554d12ec7", null, "Admin", "ADMIN" },
+                    { "14cf632f-3c8d-4532-afaf-fba326f2b351", null, "Finance", "FINANCE" },
+                    { "2b0d7153-1137-4f66-ae36-f463fd678067", null, "Member", "MEMBER" }
                 });
 
             migrationBuilder.InsertData(
@@ -271,39 +271,39 @@ namespace comp4976_assignment1.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2cf3c54f-569f-4e15-9308-679b8cd879d9", 0, "5d1f36e8-dcbc-4796-b155-a1894c135727", "aa@aa.aa", true, false, null, "AA@AA.AA", "AA@AA.AA", "AQAAAAIAAYagAAAAEEwFBfq3kQmgkKJeihJjPmnT/E3QMm/jWWum6H1hZNCEacRp6Laobh+4DCsaYrhiNQ==", null, false, "308416a0-104f-43da-8c27-dc8696e9cbcd", false, "aa@aa.aa" },
-                    { "84652e1b-9187-4609-8df0-6e8c951ce906", 0, "f87c72ea-33be-4b1e-ab2b-a774861b89dc", "mm@mm.mm", true, false, null, "MM@MM.MM", "MM@MM.MM", "AQAAAAIAAYagAAAAEGxQrQFDeYINYqIn7wKaW3hDgwEgRlC8EyhGWJm/a8/xsRfx9vbxnh2sUOqxTf8V9g==", null, false, "ba6d257b-a401-4410-8b37-a414bb492da0", false, "mm@mm.mm" },
-                    { "e2a5a270-9722-45e5-9081-0ad941b08a64", 0, "6acb90aa-93d5-46e1-8229-29f2c92b1fa7", "ff@ff.ff", true, false, null, "FF@FF.FF", "FF@FF.FF", "AQAAAAIAAYagAAAAEPr0rDcgSNWKEzYarhzCGuheGdUCXFFDa5Y1nqOXxKolmSPyNE3OYXD/nvkOREpF0A==", null, false, "68302e01-2ba7-4962-8fb0-4123a63b732d", false, "ff@ff.ff" }
+                    { "1518dc7e-13f9-4b81-9f39-64f262cb1f2b", 0, "9d2ad477-5db0-4311-bfc6-1a0577209f3c", "ff@ff.ff", true, false, null, "FF@FF.FF", "FF@FF.FF", "AQAAAAIAAYagAAAAEMaPjA+wzgFmXbE+Bjzf5k+yJuJISBS4xMyABxRBiUR7GeVef4IV1EZaiVYb63u3vg==", null, false, "c38537c9-da4b-473d-9e2a-b5fe673de055", false, "ff@ff.ff" },
+                    { "9b6ed553-9621-4cd4-8b0a-0c0f36aeefe2", 0, "304b7495-0032-4c33-bbd9-6fa9faec602d", "mm@mm.mm", true, false, null, "MM@MM.MM", "MM@MM.MM", "AQAAAAIAAYagAAAAEOzUPN/r9GLKQWW6C7WGPfcNpDhqT5v4C7OHoe8WjkSduaR9L/hXuU+UxzPeUKs45Q==", null, false, "ab23aa76-cc9d-42d9-9350-65308f12a5de", false, "mm@mm.mm" },
+                    { "fef6ca86-e939-4a88-93c9-e1af59543fcc", 0, "9f04d1bd-a561-4517-8484-ca1204f83a72", "aa@aa.aa", true, false, null, "AA@AA.AA", "AA@AA.AA", "AQAAAAIAAYagAAAAEGRIPckGhlbyzQHRBB1YYe5JBwWphvtFACLsSXKTKOaheAJoNGUIS/LbPgn/wK2CBA==", null, false, "fabee423-ec40-41e1-9feb-db865d4f1c05", false, "aa@aa.aa" }
                 });
 
             migrationBuilder.InsertData(
-                table: "ContactList",
+                table: "ContactLists",
                 columns: new[] { "AccountNo", "City", "Country", "Created", "CreatedBy", "Email", "FirstName", "LastName", "Modified", "ModifiedBy", "PostalCode", "Street" },
                 values: new object[,]
                 {
-                    { 1, "New York", "USA", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9300), "Seed", "johndoe@example.com", "John", "Doe", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9370), "Seed", "V5T 2W8", "123 Main St" },
-                    { 2, "Richmond", "Canada", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9380), "Seed", "sam@fox.com", "Sam", "Fox", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9380), "Seed", "V4F 1M7", "457 Fox Avenue" },
-                    { 3, "Delta", "Canada", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9380), "Seed", "ann@day.com", "Ann", "Day", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9380), "Seed", "V6G 1M6", "231 River Road" }
+                    { 1, "New York", "USA", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6130), "Seed", "johndoe@example.com", "John", "Doe", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6160), "Seed", "V5T 2W8", "123 Main St" },
+                    { 2, "Richmond", "Canada", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6170), "Seed", "sam@fox.com", "Sam", "Fox", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6170), "Seed", "V4F 1M7", "457 Fox Avenue" },
+                    { 3, "Delta", "Canada", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6170), "Seed", "ann@day.com", "Ann", "Day", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6170), "Seed", "V6G 1M6", "231 River Road" }
                 });
 
             migrationBuilder.InsertData(
-                table: "PaymentMethod",
+                table: "PaymentMethods",
                 columns: new[] { "PaymentMethodId", "Created", "CreatedBy", "Modified", "ModifiedBy", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9460), "Seed", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9460), "Seed", "Credit Card" },
-                    { 2, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9470), "Seed", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9470), "Seed", "PayPal" },
-                    { 3, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9470), "Seed", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9470), "Seed", "Debit Card" }
+                    { 1, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6190), "Seed", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6190), "Seed", "Credit Card" },
+                    { 2, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6190), "Seed", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6190), "Seed", "PayPal" },
+                    { 3, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6200), "Seed", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6200), "Seed", "Debit Card" }
                 });
 
             migrationBuilder.InsertData(
-                table: "TransactionType",
+                table: "TransactionTypes",
                 columns: new[] { "TransactionTypeId", "Created", "CreatedBy", "Description", "Modified", "ModifiedBy", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9490), "Seed", "Donations made without any special purpose", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9490), "Seed", "General Donation" },
-                    { 2, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9490), "Seed", "Donations made for homeless people", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9490), "Seed", "Food for homeless" },
-                    { 3, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9500), "Seed", "Donations for the purpose of upgrading the gym", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9500), "Seed", "Repair of Gym" }
+                    { 1, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6210), "Seed", "Donations made without any special purpose", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6220), "Seed", "General Donation" },
+                    { 2, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6220), "Seed", "Donations made for homeless people", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6220), "Seed", "Food for homeless" },
+                    { 3, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6220), "Seed", "Donations for the purpose of upgrading the gym", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6220), "Seed", "Repair of Gym" }
                 });
 
             migrationBuilder.InsertData(
@@ -311,9 +311,9 @@ namespace comp4976_assignment1.Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "2176da08-9a70-4221-afe0-5f26790503c4", "2cf3c54f-569f-4e15-9308-679b8cd879d9" },
-                    { "af30b332-4f02-4d34-8ac0-902939591ffa", "84652e1b-9187-4609-8df0-6e8c951ce906" },
-                    { "d1eff987-dd82-4687-9201-e1caf815444a", "e2a5a270-9722-45e5-9081-0ad941b08a64" }
+                    { "2b0d7153-1137-4f66-ae36-f463fd678067", "1518dc7e-13f9-4b81-9f39-64f262cb1f2b" },
+                    { "14cf632f-3c8d-4532-afaf-fba326f2b351", "9b6ed553-9621-4cd4-8b0a-0c0f36aeefe2" },
+                    { "0923bf71-ac5b-4dfc-9573-2d5554d12ec7", "fef6ca86-e939-4a88-93c9-e1af59543fcc" }
                 });
 
             migrationBuilder.InsertData(
@@ -321,9 +321,9 @@ namespace comp4976_assignment1.Data.Migrations
                 columns: new[] { "TransId", "AccountNo", "Amount", "Created", "CreatedBy", "Date", "Modified", "ModifiedBy", "Notes", "PaymentMethodId", "TransactionTypeId" },
                 values: new object[,]
                 {
-                    { 1, 1, 100f, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9510), "Seed", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9510), new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9510), "Seed", "This is a first donation", 1, 1 },
-                    { 2, 2, 100f, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9520), "Seed", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9520), new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9520), "Seed", "This is a second donation", 1, 2 },
-                    { 3, 3, 100f, new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9520), "Seed", new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9520), new DateTime(2023, 10, 15, 22, 32, 53, 41, DateTimeKind.Local).AddTicks(9530), "Seed", "This is a third donation", 1, 3 }
+                    { 1, 1, 100f, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6240), "Seed", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6240), new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6240), "Seed", "This is a first donation", 1, 1 },
+                    { 2, 2, 100f, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6250), "Seed", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6240), new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6250), "Seed", "This is a second donation", 1, 2 },
+                    { 3, 3, 100f, new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6250), "Seed", new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6250), new DateTime(2023, 10, 15, 23, 37, 32, 236, DateTimeKind.Local).AddTicks(6250), "Seed", "This is a third donation", 1, 3 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -407,13 +407,13 @@ namespace comp4976_assignment1.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "ContactList");
+                name: "ContactLists");
 
             migrationBuilder.DropTable(
-                name: "PaymentMethod");
+                name: "PaymentMethods");
 
             migrationBuilder.DropTable(
-                name: "TransactionType");
+                name: "TransactionTypes");
         }
     }
 }
