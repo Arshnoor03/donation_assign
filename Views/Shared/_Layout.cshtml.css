@@ -1,0 +1,89 @@
+﻿/* Reset some default styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a common font and background color */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #6f84a4;
+  position: relative;
+  min-height: 100%;
+}
+
+/* Header styles */
+header {
+  background-color: #6f84a4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.navbar {
+  padding: 10px;
+  background-color: #0077cc;
+}
+
+.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.nav-link {
+  color: #0077cc;
+}
+
+/* Button styles */
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Active link styles */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Main container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero section */
+.hero {
+  background: url('hero-background.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 36px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 20px;
+  background-color: rgba(41, 144, 151, 0.502);
+}
+
+.footer-content {
+  font-size: 14px;
+  color: #000;
+}

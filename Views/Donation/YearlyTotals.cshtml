@@ -1,0 +1,29 @@
+@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Yearly Total Donations";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Total Donation Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Year</td>
+                <td>@String.Format("{0:C}", item.TotalAmount)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mt-2">
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

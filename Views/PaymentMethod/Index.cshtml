@@ -1,0 +1,56 @@
+@model IEnumerable<comp4976_assignment1.Models.PaymentMethod>
+    
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Payment Method</h1>
+
+<p>
+     <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                CRUD
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethodId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedBy)
+            </td> *@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PaymentMethodId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PaymentMethodId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PaymentMethodId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

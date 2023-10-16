@@ -1,0 +1,49 @@
+@model IEnumerable<comp4976_assignment1.Models.Donations>
+
+@{
+    ViewData["Title"] = "Tax Receipt";
+}
+
+<div class="container">
+    <h1 class="my-3">Tax Receipt for @ViewBag.DonorName</h1>
+    <table class="table table-bordered my-3">
+        <tr>
+            <th scope="col">Date</th>
+            <td>@ViewBag.EndOfYear</td>
+        </tr>
+        <tr>
+            <th scope="col">Donor Name</th>
+            <td>@ViewBag.DonorName</td>
+        </tr>
+        <tr>
+            <th scope="col">Donations Paid During</th>
+            <td>@ViewBag.CurrentYear</td>
+        </tr>
+    </table>
+
+    <h2 class="my-3">Donation Details</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.First().Date) </th>
+                <th> @Html.DisplayNameFor(model => model.First().Amount) </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Date.ToString("MMMM dd, yyyy")</td>
+                    <td>@String.Format("{0:C}", item.Amount)</td>
+                </tr>
+            }
+            <tr>
+                <th>Total:</th>
+                <td>@ViewBag.TotalDonations.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="mt-2">
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
